@@ -19,6 +19,29 @@ function formatMonthYear(value: string) {
 }
 
 export default function Home() {
+  const heroStats = [
+    {
+      value: `${portfolioData.stats.yearsOfExperience}+`,
+      label: "Years of experience",
+      href: "#experience",
+    },
+    {
+      value: `${portfolioData.stats.companiesWorked}`,
+      label: "Companies worked",
+      href: "#experience",
+    },
+    {
+      value: `${portfolioData.stats.featuredProjects}`,
+      label: "Featured projects",
+      href: "#projects",
+    },
+    {
+      value: `${portfolioData.stats.awardsCount}`,
+      label: "Awards",
+      href: "#awards",
+    },
+  ];
+
   return (
     <main className="page-shell">
       <div className="background-orb orb-one" />
@@ -71,22 +94,14 @@ export default function Home() {
             </div>
           </Reveal>
           <StaggerGroup className="stats-grid">
-            <StaggerItem className="stat-card">
-              <strong>{portfolioData.stats.yearsOfExperience}+</strong>
-              <span>Years of experience</span>
-            </StaggerItem>
-            <StaggerItem className="stat-card">
-              <strong>{portfolioData.stats.companiesWorked}</strong>
-              <span>Companies worked</span>
-            </StaggerItem>
-            <StaggerItem className="stat-card">
-              <strong>{portfolioData.stats.featuredProjects}</strong>
-              <span>Featured projects</span>
-            </StaggerItem>
-            <StaggerItem className="stat-card">
-              <strong>{portfolioData.stats.awardsCount}</strong>
-              <span>Awards</span>
-            </StaggerItem>
+            {heroStats.map((item) => (
+              <StaggerItem key={item.label}>
+                <InteractiveLink className="stat-card stat-card-link" href={item.href}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </InteractiveLink>
+              </StaggerItem>
+            ))}
           </StaggerGroup>
         </PageIntro>
       </section>
