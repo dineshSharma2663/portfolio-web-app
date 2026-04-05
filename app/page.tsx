@@ -1,8 +1,9 @@
-import { InteractiveLink } from "@/components/interactive-button";
 import { PageIntro, Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
 import { ProjectsShowcase } from "@/components/projects-showcase";
+import { SiteHeader } from "@/components/site-header";
 import { SkillsShowcase } from "@/components/skills-showcase";
 import { portfolioData } from "@/data/portfolio";
+import { InteractiveLink } from "@/components/interactive-button";
 
 function formatMonthYear(value: string) {
   if (value === "Present") {
@@ -22,23 +23,9 @@ export default function Home() {
       <div className="background-orb orb-one" />
       <div className="background-orb orb-two" />
 
-      <PageIntro className="page-intro">
-        <header className="site-header">
-          <InteractiveLink href="#home" className="brand-mark">
-            {portfolioData.profile.firstName[0]}
-            {portfolioData.profile.lastName[0]}
-          </InteractiveLink>
-          <nav className="nav-links" aria-label="Primary">
-            {portfolioData.navigation
-              .filter((item) => item.visible)
-              .map((item) => (
-                <InteractiveLink key={item.href} href={item.href} className="nav-link">
-                  {item.label}
-                </InteractiveLink>
-              ))}
-          </nav>
-        </header>
-      </PageIntro>
+      <div className="page-intro">
+        <SiteHeader />
+      </div>
 
       <section id="home" className="hero-section section section-shell">
         <PageIntro className="hero-copy">

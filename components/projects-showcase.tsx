@@ -75,9 +75,17 @@ export function ProjectsShowcase() {
                 <span className="eyebrow">{project.kind}</span>
                 <span className="project-category">{project.category}</span>
               </div>
-              <h3>{project.name}</h3>
-              {project.organization ? <p className="muted">{project.organization}</p> : null}
-              <p>{project.description}</p>
+              <div className="project-copy">
+                <h3>{project.name}</h3>
+                <div className="project-summary">
+                  {project.organization ? (
+                    <p className="muted project-organization">{project.organization}</p>
+                  ) : (
+                    <span className="project-organization-spacer" aria-hidden="true" />
+                  )}
+                  <p>{project.description}</p>
+                </div>
+              </div>
               {project.tech?.length ? (
                 <div className="pill-row">
                   {project.tech.map((item) => (
