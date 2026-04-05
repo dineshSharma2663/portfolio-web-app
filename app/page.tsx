@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { PageIntro, Reveal, StaggerGroup, StaggerItem } from "@/components/motion";
 import { ProjectsShowcase } from "@/components/projects-showcase";
 import { SiteHeader } from "@/components/site-header";
@@ -48,10 +49,26 @@ export default function Home() {
         </PageIntro>
 
         <PageIntro className="hero-panel" transition={{ delay: 0.12, duration: 0.8 }}>
-          <Reveal className="panel-card profile-card" delay={0.12}>
-            <p className="eyebrow">Current Role</p>
-            <h3>{portfolioData.profile.currentRole}</h3>
-            <p>{portfolioData.profile.subHeadline}</p>
+          <Reveal className="panel-card profile-card hero-profile-card" delay={0.12}>
+            <div className="hero-profile-media">
+              <div className="hero-profile-frame">
+                <Image
+                  src={portfolioData.profile.profileImage}
+                  alt={`${portfolioData.profile.fullName} profile photo`}
+                  width={240}
+                  height={240}
+                  className="hero-profile-image"
+                  sizes="(max-width: 720px) 170px, (max-width: 960px) 200px, 240px"
+                  priority
+                />
+              </div>
+            </div>
+            <div className="hero-profile-copy">
+              <span className="status-pill">{portfolioData.profile.availability}</span>
+              <p className="eyebrow">Current Role</p>
+              <h3>{portfolioData.profile.currentRole}</h3>
+              <p>{portfolioData.profile.subHeadline}</p>
+            </div>
           </Reveal>
           <StaggerGroup className="stats-grid">
             <StaggerItem className="stat-card">

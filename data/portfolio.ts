@@ -64,7 +64,7 @@ export const portfolioData = {
     },
     email: "dinesh.sharma2663@gmail.com",
     phones: ["+91-(870)-852-7132", "+91-(997)-114-6858"],
-    profileImage: "/images/profile.jpg",
+    profileImage: "/images/profile.png",
     resumeFile: "/resume/dinesh-kumar-ios-resume.pdf",
     availability: "Open to opportunities",
   },
